@@ -40,7 +40,7 @@ const JoinBattle = () => {
                 </p>
                 <CustomButton
                   title="Join"
-                  handleClick={() => (handleClick = battle.name)}
+                  handleClick={() => handleClick(battle.name)}
                 />
               </div>
             ))

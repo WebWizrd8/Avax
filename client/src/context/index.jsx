@@ -28,7 +28,8 @@ export const GlobalContextProvider = ({ children }) => {
     pendingBattles: [],
     activeBattle: null,
   });
-  const [updateGameData, setUpdateGameData] = useState(0)
+  const [updateGameData, setUpdateGameData] = useState(0);
+  const [battleGround, setBattleGround] = useState("bg-astral");
 
   const navigate = useNavigate();
 
@@ -71,7 +72,7 @@ export const GlobalContextProvider = ({ children }) => {
         provider,
         walletAddress,
         setShowAlert,
-        setUpdateGameData
+        setUpdateGameData,
       });
     }
   }, [contract]);
@@ -123,7 +124,8 @@ export const GlobalContextProvider = ({ children }) => {
         battleName,
         setBattleName,
         gameData,
-        setGameData,
+        battleGround,
+        setBattleGround,
       }}
     >
       {children}
