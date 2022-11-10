@@ -6,7 +6,7 @@ import React, {
   useState,
 } from "react";
 import { ethers } from "ethers";
-import Web3Modal from "web3modal";
+import Web3Modal, { local } from "web3modal";
 import { useNavigate } from "react-router-dom";
 import { ABI, ADDRESS } from "../contract";
 import { createEventListeners } from "./createEventListeners";
@@ -32,6 +32,16 @@ export const GlobalContextProvider = ({ children }) => {
   const [battleGround, setBattleGround] = useState("bg-astral");
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const battlegroundFromLocalStorage = localStorage.getItem("battleground");
+
+    if (battlegroundFromLocalStorage) {
+      setBattleGround(battlegroundFromLocalStorage);
+    } else {
+      local.setItem("battleground", battleGround);
+    }
+  }, []);
 
   //  * Set the wallet address to the state
   const updateCurrentWalletAddress = async () => {
