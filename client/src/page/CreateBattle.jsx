@@ -5,9 +5,15 @@ import { useGlobalContext } from "../context";
 import { PageHOC, CustomButton, CustomInput, GameLoad } from "../components";
 
 const CreateBattle = () => {
-  const { contract, battleName, setBattleName } = useGlobalContext();
-  const [waitBattle, setWaitBattle] = useState(true);
+  const { contract, battleName, setBattleName, gameData } = useGlobalContext();
+  const [waitBattle, setWaitBattle] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (gameData?.activeBattle?.battleStatus === 0) {
+      setWaitBattle(true);
+    }
+  }, [gameData]);
 
   const handleClick = async () => {
     if (!battleName || !battleName.trim()) return null;
@@ -23,7 +29,7 @@ const CreateBattle = () => {
 
   return (
     <>
-    {waitBattle && <GameLoad />}
+      {waitBattle && <GameLoad />}
       <div className="flex flex-col mb-5">
         <CustomInput
           label="Battle"
