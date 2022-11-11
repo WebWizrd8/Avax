@@ -42,7 +42,7 @@ const GameInfo = () => {
 
           <div className="mt-3">
             {gameRules.map((rule, i) => (
-              <p key={`game-rule-index`} className={styles.gameInfoText}>
+              <p key={`game-rule-${i}`} className={styles.gameInfoText}>
                 <span className="font-bold">{i + 1}</span>. {rule}
               </p>
             ))}

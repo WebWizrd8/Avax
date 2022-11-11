@@ -4,6 +4,7 @@ const ActionButton = ({ imgUrl, handleClick, restStyle }) => {
   return (
     <div
       className={`${styles.gameMoveBox} ${styles.flexCenter} ${styles.glassEffect} ${restStyle}`}
+      onClick={handleClick}
     >
       <img src={imgUrl} alt="action buttons" className={styles.gameMoveIcon} />
     </div>
