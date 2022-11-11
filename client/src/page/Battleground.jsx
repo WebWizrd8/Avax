@@ -27,7 +27,7 @@ const Battleground = () => {
   };
 
   return (
-    <div className={`${styles.flexCetner} ${styles.battlegroundContainer}`}>
+    <div className={`${styles.flexCenter} ${styles.battlegroundContainer}`}>
       {showAlert?.status && (
         <Alert type={showAlert.type} message={showAlert.message} />
       )}
